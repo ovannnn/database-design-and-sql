@@ -1,4 +1,4 @@
-# database-design-and-sql
+# database-design-and-sql (CISA 3351)
 Spring 2019
 
 Catalog Course Description: Basic database design and introduction to structured query language
