@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>DataSource1</DataSourceReference>
+      <CommandText>SELECT        COLLEGE.COLLEGE_NAME, SUM(SECTIONS.ENROLLMENT) AS ENROLLMENT1
+FROM            COURSES INNER JOIN
+                         SECTIONS ON COURSES.COURSE_CODE = SECTIONS.COURSE_CODE INNER JOIN
+                         SUBJECTS ON COURSES.SUBJECT_ID = SUBJECTS.SUBJECT_ID INNER JOIN
+                         COLLEGE ON SUBJECTS.COLLEGE_ID = COLLEGE.COLLEGE_ID
+GROUP BY COLLEGE.COLLEGE_NAME</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="COLLEGE_NAME">
+        <DataField>COLLEGE_NAME</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ENROLLMENT1">
+        <DataField>ENROLLMENT1</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

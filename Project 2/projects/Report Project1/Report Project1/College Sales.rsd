@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>DataSource1</DataSourceReference>
+      <CommandText>SELECT        COLLEGE.COLLEGE_NAME, SUM(EBOOKS.PRICE * SECTIONS.ENROLLMENT) AS Sales
+FROM            COLLEGE INNER JOIN
+                         SUBJECTS ON COLLEGE.COLLEGE_ID = SUBJECTS.COLLEGE_ID INNER JOIN
+                         COURSES ON SUBJECTS.SUBJECT_ID = COURSES.SUBJECT_ID INNER JOIN
+                         SECTIONS ON COURSES.COURSE_CODE = SECTIONS.COURSE_CODE INNER JOIN
+                         EBOOKS ON SECTIONS.ISBN = EBOOKS.ISBN
+GROUP BY COLLEGE.COLLEGE_NAME</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="COLLEGE_NAME">
+        <DataField>COLLEGE_NAME</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Sales">
+        <DataField>Sales</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

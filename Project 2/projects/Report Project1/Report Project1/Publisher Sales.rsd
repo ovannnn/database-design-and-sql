@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>DataSource1</DataSourceReference>
+      <CommandText>SELECT        EBOOKS.PUBLISHER, SUM(SECTIONS.ENROLLMENT * EBOOKS.PRICE) AS Sales
+FROM            SECTIONS INNER JOIN
+                         EBOOKS ON SECTIONS.ISBN = EBOOKS.ISBN
+GROUP BY EBOOKS.PUBLISHER</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="PUBLISHER">
+        <DataField>PUBLISHER</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Sales">
+        <DataField>Sales</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
